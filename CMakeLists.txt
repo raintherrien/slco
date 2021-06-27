@@ -18,3 +18,9 @@ endif()
 # Header only library
 add_library(${PROJECT_NAME} INTERFACE)
 target_include_directories(${PROJECT_NAME} INTERFACE ${PROJECT_SOURCE_DIR}/include)
+
+option(SLCO_BUILD_EXAMPLES "Build example programs" OFF)
+mark_as_advanced(FORCE SLCO_BUILD_EXAMPLES)
+if(SLCO_BUILD_EXAMPLES)
+        add_subdirectory(examples/generator)
+endif()
